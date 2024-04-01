@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver trabajador</title>
+        <style>
+table {
+  border-collapse: collapse;
+   width: 80%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+<h1>Listado de Soportes</h1>
+<div>Total de soportes: {{total_supports}}</div><br/>
+<div><br/>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>descripcion</th>
+                <th>Complejidad</th>
+                <th>id del trabajador</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for support in supports %}
+        <tr>
+            <td>{{support.id}}</td>
+            <td>{{support.description}}</td>
+            <td>{{support.complejidad}}</td>
+            <td><a href="ver/{{support.trabajador_id}}">{{support.trabajador_id}}</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div><br/>
+<a href="{{url_for('trabajadores')}}">Regresar al inicio</a>
+</body>
+</html>

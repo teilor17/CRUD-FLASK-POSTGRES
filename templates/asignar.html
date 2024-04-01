@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asignar trabajo</title>
+    <style>
+input[type=text], select, textarea {
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 4px;
+resize: vertical;
+
+}
+input[type=submit] {
+background-color: #04AA6D;
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+input[type=submit]:hover {
+background-color: #45a049;
+}
+label {
+padding: 12px 12px 12px 0;
+display: inline-block;
+}
+
+</style>
+</head>
+<body>
+<h1>Trabajo a asignar</h1>
+<form method="POST">
+    {{forma.csrf_token}}
+    <p>
+        {{forma.description.label}}<br/>
+        {{forma.description(size=30)}}
+    </p>
+    <p>
+        {{forma.complejidad.label}}<br/>
+        {{forma.complejidad(size=10)}}
+    </p>
+    <p>
+        {{forma.enviar()}}
+    </p>
+</form>
+</body>
+</html>

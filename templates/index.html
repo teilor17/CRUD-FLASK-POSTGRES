@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de personas</title>
+    <style>
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+  label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+</style>
+</head>
+<body>
+<h1>Sisitema de administracion de Personas SAP</h1>
+<div>Total de trabajadores: {{total_trabajadores}}</div><br/>
+<div>
+    <a href="/agregar" >Agregar Trabajadores</a><br/>
+</div>
+<div><br/>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Complejidad</th>
+                <th>Informacion y Trabajos</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for trabajador in trabajadores %}
+        <tr>
+            <td>{{trabajador.id}}</td>
+            <td>{{trabajador.name}}</td>
+            <td>{{trabajador.compleacomulada}}</td>
+            <td><a href="ver/{{trabajador.id}}">Ver en TODO</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div><br/>
+<div>Total de soportes: {{total_supports}}</div>
+<div><br/>
+    <a href="/asignar">Agregar trabajos</a><br/>
+</div>
+<div><br/>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>descripcion</th>
+                <th>Complejidad</th>
+                <th>id del trabajador</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for support in supports %}
+        <tr>
+            <td>{{support.id}}</td>
+            <td>{{support.description}}</td>
+            <td>{{support.complejidad}}</td>
+            <td><a href="ver/{{support.trabajador_id}}">{{support.trabajador_id}}</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ </body>
+</html>
